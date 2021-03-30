@@ -14,14 +14,6 @@ def escalar(p,s):
     yp=p[1]*s[1]
     return[xp,yp]
 
-def cartesiano(p,c):
-    xp=p[0] + c[0]
-    yp= -p[1] + c[1]
-    return[xp,yp]
-
-def punto(var_pantalla, p, cl=AZUL):
-    pygame.draw.circle(var_pantalla, cl, p, 3)
-
 if __name__ == '__main__':
     pygame.init()
     pantalla=pygame.display.set_mode([ANCHO,ALTO])
@@ -30,17 +22,14 @@ if __name__ == '__main__':
     [530,250], [530,130], [350,80],[150,110], [100,100], [350,60], [570,120], [530,130], [350,80],
     [530,130], [570,120], [570,280], [350,350], [350,300], [530,250], [350,80], [150,110]]
 
-    #Escalamiento simetrico sx=sy
-    S=[0.2,0.2]
-    
-    centro=[500,600]
+    n = 0.9
+    S = [n, n]
 
     pygame.draw.polygon(pantalla,ROJO, iso,2)
     print('Presiona la tecla ESPACIO para escalar el Isometrico.')
     pygame.display.flip()
 
      #Escalar la figura
-    
     iso_e=[]
     for p in iso:
         pp=escalar(p,S)
@@ -57,6 +46,7 @@ if __name__ == '__main__':
                     if S[0] < 0.3 or S[1] > 2:
                         print("ERROR en los parametros de escalamiento.") 
                     elif S[0] >= 0.3 or S[1] <= 2:
-                        pantalla.fill(NEGRO)
+                        n+=0.1
+                        #pantalla.fill(NEGRO)
                         pygame.draw.polygon(pantalla,AZUL, iso_e, 2)
                         pygame.display.flip()
