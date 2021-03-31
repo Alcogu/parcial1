@@ -64,7 +64,7 @@ if __name__ == '__main__':
             iso_t.append(np)
         #pygame.draw.polygon(pantalla, BLANCO, iso_t, 1)
         
-        iso_rot = [RotacionAnti(p, 15) for p in iso_t]
+        iso_rot = [RotacionAnti(p, 30) for p in iso_t]
         pygame.draw.polygon(pantalla, VERDE, iso_rot, 1)
 
         pygame.display.flip()
